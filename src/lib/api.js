@@ -6,7 +6,7 @@ import {
   wait
 } from './link-holder'
 
-// 本地文章文件名没有空格
+// 本地文章文件名没有空格 (Local article file name without spaces)
 const POST_LINK_REG = /(file:\/\/(.+?))((:?\s+)?[\s\)])/g
 
 var processContent = (data) => {
@@ -24,7 +24,7 @@ var processContent = (data) => {
 }
 
 export function process(data) {
-  // 只对本地文章处理
+  // 只对本地文章处理 (Only deal with local articles)
   if (data.layout === 'post') {
     processContent(data)
     addLink(path.basename(data.asset_dir), data.permalink)
@@ -34,6 +34,6 @@ export function process(data) {
 export function verifyComplete() {
   var names = getWatchingNames()
   if (names.length) {
-    console.log('file:// 匹配不到下列文章：' + names.join(', '))
+    console.log('file:// 匹配不到下列文章 (Can\'t match the following articles)：' + names.join(', '))
   }
 }
